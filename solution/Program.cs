@@ -1,4 +1,4 @@
-﻿string[] inputArray = { "Russia", "Denmark", "Kazan"};
+﻿string[] inputArray = { "Russia", "Denmark", "Kazan" };
 int lengthToShow = 3;
 
 void ArrayPrintOut(string[] input)
@@ -8,15 +8,22 @@ void ArrayPrintOut(string[] input)
 
 string[] ArraySorter(string[] input, int lengthToShow)
 {
-    List<string> sortedOut = new List<string>();
+    int count = 0;
     for (int i = 0; i < input.Length; i++)
     {
-        if (input[i].Length<=lengthToShow)
-            sortedOut.Add(input[i]);
+        if (input[i].Length <= lengthToShow)
+            count++;
     }
-    string[] sortedArray = new string[sortedOut.Count];
-    for (int i = 0; i < sortedOut.Count; i++)
-        sortedArray[i]=sortedOut[i];
+    int index = 0;
+    string[] sortedArray = new string[count];
+    for (int i = 0; i < input.Length; i++)
+    {
+        if (input[i].Length <= lengthToShow)
+        {
+            sortedArray[index] = input[i];
+            index++;
+        }
+    }
     return sortedArray;
 }
 
